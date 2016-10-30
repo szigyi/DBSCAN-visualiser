@@ -1,23 +1,48 @@
 
 var canvas;
 var canvasPosX = 300;
-var url = 'http://localhost:8080/clustering/circle';
+var host = 'http://localhost';
+var port = ':8080';
+var url = host + port;
+var circleUrl = url + '/clustering/circle';
+var generateUrl = url + '/generate';
 var data = [];
 var clusters = [];
 var colors = [];
 var changed = false;
+var eps = 0.03;
+var pts = 3;
 
 function setup() {
   canvas = createCanvas(windowWidth - canvasPosX, windowHeight);
   canvas.parent('canvasContainer');
   canvas.position(canvasPosX, 0);
-  getClusteredData(0.03, 3);
+  getClusteredData(eps, pts);
+}
+
+function setAttributeAndCluster(eps1, pts1) {
+    eps = eps1;
+    pts = pts1;
+    getClusteredData(eps, pts);
 }
 
 function getClusteredData(eps, pts) {
-  var u = url + '?eps=' + eps + '&pts=' + pts;
+  var u = circleUrl + '?eps=' + eps + '&pts=' + pts;
   console.log('Request clustering');
   loadJSON(u, translateToPoints);
+}
+
+function regenerateData() {
+    console.log('Regenerating example data');
+    var params = {
+    }
+
+    httpGet(generateUrl, params, finished);
+
+    function finished(response) {
+      console.log("Regenerated: " + response);
+      getClusteredData(eps, pts);
+    }
 }
 
 function translateToPoints(d) {
