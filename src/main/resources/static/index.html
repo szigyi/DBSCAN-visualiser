@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>DBSCAN_Clustering</title>
+    <script src="libraries/p5.js" type="text/javascript"></script>
+
+    <script src="libraries/p5.dom.js" type="text/javascript"></script>
+    <script src="libraries/p5.sound.js" type="text/javascript"></script>
+
+    <script src="sketch.js" type="text/javascript"></script>
+    <link href="main.css" rel="stylesheet" type="text/css" />
+
+    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+
+    <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>
+</head>
+<body>
+<div class="container-fluid">
+    <div id="settings" class="form-group">
+        <fieldset>
+            <legend>Clustering</legend>
+            <label for="eps" class="form-text" >EPS</label>
+            <input type="number" name="eps" id="eps" class="form-control" min="0" max="1" step="0.01" value="0.03"/>
+            <label for="pts" class="form-text" >PTS</label>
+            <input type="number" name="pts" id="pts" class="form-control" min="1" max="100" step="1" value="3"/>
+            <button class="btn btn-primary" onclick="getClusteredData(document.getElementById('eps').value, document.getElementById('pts').value)">
+                Submit
+            </button>
+        </fieldset>
+        <fieldset>
+            <legend>Data Collection</legend>
+            <label for="gap" class="form-text" >Gap</label>
+            <input type="number" name="gap" id="gap" class="form-control" min="0" max="1" step="0.01" value="0.1"/>
+            <button class="btn btn-primary" onclick="#">
+                Submit
+            </button>
+        </fieldset>
+    </div>
+    <div id="canvasContainer"></div>
+</div>
+</body>
+</html>
