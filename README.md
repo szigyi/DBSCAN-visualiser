@@ -16,10 +16,10 @@ When you modify the attributes of the clustering algorithm, in the background th
 
 ## TODO
    * Backend
-      * API to regenerate the data collection
-      * API to set the attributes of the data collection generation, like gap, inner radius, outer radius
-      * Add more example data collection
+      -[X] API to regenerate the data collection
+      -[] API to set the attributes of the data collection generation, like gap, inner radius, outer radius
+      -[] Add more example data collection
    * Frontend
-      * Add 'Regenerate' button which regenerates the data collection
-      * Add inputs to set the data generation's attributes
-      * Add a selector for more example data collection
+      -[X] Add 'Regenerate' button which regenerates the data collection
+      -[] Add inputs to set the data generation's attributes
+      -[] Add a selector for more example data collection
