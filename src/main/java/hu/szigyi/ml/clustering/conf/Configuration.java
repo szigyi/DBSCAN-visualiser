@@ -36,8 +36,8 @@ public class Configuration {
 
     @Bean("circleData")
     public Collection<DataPoint> createExampleCircle() {
-        int innerSize = 1000;
-        int outerSize = 1000;
+        int innerSize = 3000;
+        int outerSize = 6000;
         double maxAngle = 360;
         double innerRadius = 0.3;
         double gap = 0.05;
