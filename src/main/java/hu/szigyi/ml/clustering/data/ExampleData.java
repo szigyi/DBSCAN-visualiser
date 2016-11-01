@@ -36,13 +36,10 @@ public class ExampleData {
         return data;
     }
 
-    public Collection<DataPoint> createExampleCircle() {
-        int innerSize = 1000;
-        int outerSize = 1000;
+    public Collection<DataPoint> createExampleCircle(double gap, int innerSize, int outerSize) {
         double maxAngle = 360;
         double innerRadius = 0.3;
-        double gap = 0.05;
-        double outterRadius = 0.3;
+        double outerRadius = 0.3;
         Collection<DataPoint> data = new ArrayList<>();
         // inner circle
         List<Double> inRadius = random.doubles(innerSize, 0, innerRadius).boxed().collect(Collectors.toList());
@@ -54,7 +51,7 @@ public class ExampleData {
             data.add(point);
         }
         // outer circle
-        List<Double> outRadius = random.doubles(outerSize, (innerRadius + gap), (innerRadius + gap + outterRadius)).boxed().collect(Collectors.toList());
+        List<Double> outRadius = random.doubles(outerSize, (innerRadius + gap), (innerRadius + gap + outerRadius)).boxed().collect(Collectors.toList());
         List<Double> outAngles = random.doubles(outerSize, 0, maxAngle).boxed().collect(Collectors.toList());
         for (int i = 0; i < outerSize; i++) {
             Double rad = outRadius.get(i);

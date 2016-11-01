@@ -20,6 +20,12 @@ import java.util.stream.DoubleStream;
 @org.springframework.context.annotation.Configuration
 public class Configuration {
 
+    private static final double DEFAULT_GAP = 0.05;
+
+    private static final int DEFAULT_INNER_SIZE = 1000;
+
+    private static final int DEFAULT_OUTER_SIZE = 1000;
+
     @Autowired
     private ExampleData exampleData;
 
@@ -30,6 +36,6 @@ public class Configuration {
 
     @Bean("circleData")
     public Collection<DataPoint> createCircleExample() {
-        return exampleData.createExampleCircle();
+        return exampleData.createExampleCircle(DEFAULT_GAP, DEFAULT_INNER_SIZE, DEFAULT_OUTER_SIZE);
     }
 }

@@ -21,6 +21,14 @@
 <div class="container-fluid">
     <div id="settings" class="form-group">
         <fieldset>
+            <legend>Data Type</legend>
+            <select id="dataTypeSelector" class="form-control">
+                <option value="CIRCLE">Circle</option>
+                <option value="RANDOM">Random</option>
+            </select>
+            <button class="btn btn-info" onclick="setDataType(document.getElementById('dataTypeSelector').value)">Select</button>
+        </fieldset>
+        <fieldset>
             <legend>Clustering</legend>
             <label for="eps" class="form-text" ><a href="#" title="the maximum distance of points required to belong to cluster">EPS</a></label>
             <input type="number" name="eps" id="eps" class="form-control" min="0" max="1" step="0.01" value="0.03"/>
@@ -40,7 +48,7 @@
             <label for="outerSize" class="form-text" ># of outer</label>
             <input type="number" name="outerSize" id="outerSize" class="form-control" min="1" max="100000" step="10" value="1000"/>
 
-            <button class="btn btn-primary" onclick="regenerateData()">ReGenerate data</button>
+            <button class="btn btn-primary" onclick="regenerateData(document.getElementById('gap').value, document.getElementById('innerSize').value, document.getElementById('outerSize').value)">ReGenerate data</button>
         </fieldset>
     </div>
     <div id="canvasContainer"></div>

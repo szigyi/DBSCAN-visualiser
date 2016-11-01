@@ -36,37 +36,35 @@ public class MainController {
     @Qualifier("circleData")
     private Collection<DataPoint> circleData;
 
-    @GetMapping("/clustering")
+    @GetMapping("/clustering/{type}")
     @ResponseBody
-    public List<Cluster<DataPoint>> runClustering(@RequestParam("eps") double eps,
-                                                  @RequestParam("pts") int pts) {
-        System.out.println(LocalDateTime.now().toString() + " Request arrived with eps:" + eps + ", pts:" + pts);
-        List<Cluster<DataPoint>> clusters = clustering(eps, pts, "");
-        System.out.println(LocalDateTime.now().toString() + " Returning clusters:" + clusters.size());
-        return clusters;
-    }
-
-    @GetMapping("/clustering/circle")
-    @ResponseBody
-    public List<Cluster<DataPoint>> runClusteringOnCircle(@RequestParam("eps") double eps,
+    public List<Cluster<DataPoint>> runClusteringOnCircle(@PathVariable("type") String type,
+                                                          @RequestParam("eps") double eps,
                                                           @RequestParam("pts") int pts) {
-        System.out.println(LocalDateTime.now().toString() + " Request arrived with eps:" + eps + ", pts:" + pts);
-        List<Cluster<DataPoint>> clusters = clustering(eps, pts, "CIRCLE");
+        System.out.println(LocalDateTime.now().toString() + " Request arrived - type:" + type + ", eps:" + eps + ", pts:" + pts);
+        List<Cluster<DataPoint>> clusters = clustering(type, eps, pts);
         System.out.println(LocalDateTime.now().toString() + " Returning clusters:" + clusters.size());
         return clusters;
     }
 
-    @GetMapping("/generate")
-    public ResponseEntity generateData() {
-        System.out.println(LocalDateTime.now().toString() + " Generate example data");
-        testData = exampleData.createExample();
-        circleData = exampleData.createExampleCircle();
+    @GetMapping("/generate/{type}")
+    public ResponseEntity generateData(@PathVariable("type") String type,
+                                       @RequestParam("gap") double gap,
+                                       @RequestParam("innerSize") int innerSize,
+                                       @RequestParam("outerSize") int outerSize) {
+        System.out.println(LocalDateTime.now().toString() + " Generate example data: " + type);
+
+        if ("CIRCLE".equalsIgnoreCase(type)) {
+            circleData = exampleData.createExampleCircle(gap, innerSize, outerSize);
+        } else {
+            testData = exampleData.createExample();
+        }
         return ResponseEntity.ok().build();
     }
 
-    private List<Cluster<DataPoint>> clustering(double eps, int pts, String dataType) {
+    private List<Cluster<DataPoint>> clustering(String type, double eps, int pts) {
         Collection<DataPoint> data;
-        if (dataType.equals("CIRCLE")) {
+        if ("CIRCLE".equalsIgnoreCase(type)) {
             data = circleData;
         } else {
             data = testData;

@@ -1,10 +1,10 @@
 
 var canvas;
-var canvasPosX = 300;
+var canvasPosX = 200;
 var host = 'http://localhost';
 var port = ':8080';
 var url = host + port;
-var circleUrl = url + '/clustering/circle';
+var clusteringUrl = url + '/clustering';
 var generateUrl = url + '/generate';
 var data = [];
 var clusters = [];
@@ -12,36 +12,47 @@ var colors = [];
 var changed = false;
 var eps = 0.03;
 var pts = 3;
+var type = 'CIRCLE';
 
 function setup() {
   canvas = createCanvas(windowWidth - canvasPosX, windowHeight);
   canvas.parent('canvasContainer');
   canvas.position(canvasPosX, 0);
-  getClusteredData(eps, pts);
+  getClusteredData();
 }
 
 function setAttributeAndCluster(eps1, pts1) {
     eps = eps1;
     pts = pts1;
-    getClusteredData(eps, pts);
+    getClusteredData();
 }
 
-function getClusteredData(eps, pts) {
-  var u = circleUrl + '?eps=' + eps + '&pts=' + pts;
-  console.log('Request clustering');
+function setDataType(t) {
+    type = t;
+    getClusteredData();
+}
+
+function getClusteredData() {
+  var u = clusteringUrl + '/' + type + '?eps=' + eps + '&pts=' + pts;
+  console.log('Request clustering: ' + u);
   loadJSON(u, translateToPoints);
 }
 
-function regenerateData() {
-    console.log('Regenerating example data');
+function regenerateData(gap, innerSize, outerSize) {
     var params = {
+        type: type,
+        gap: gap,
+        innerSize: innerSize,
+        outerSize: outerSize
     }
+    var u = generateUrl + '/' + type;
+    console.log('Regenerating example data: ' + u);
 
-    httpGet(generateUrl, params, finished);
+    httpGet(u, params, finished);
 
     function finished(response) {
       console.log("Regenerated: " + response);
-      getClusteredData(eps, pts);
+      getClusteredData();
     }
 }
 
@@ -56,8 +67,15 @@ function translateToPoints(d) {
     
     for (var j = 0; j < c.length; j++) {
       var p = c[j];
-      var X = map(p.x, 0, 1, width / 2, width - 10);
-      var Y = map(p.y, 0, 1, height / 2, height - 10);
+      var X;
+      var Y;
+      if (type === 'CIRCLE') {
+        X = map(p.x, 0, 1, width / 2, width - 10);
+        Y = map(p.y, 0, 1, height / 2, height - 10);
+      } else {
+        X = map(p.x, 0, 1, 10, width - 10);
+        Y = map(p.y, 0, 1, 10, height - 10);
+      }
       var pt = new Point(X, Y);
       cluster.push(pt);
     }
