@@ -2,6 +2,10 @@
 ## Description
 Shows the DBSCAN clustering algorithm in action
 
+2016.11.01
+![screen shot 2016-11-01 at 23 10 01](https://cloud.githubusercontent.com/assets/1894992/19910973/5f6c920e-a088-11e6-80a6-1cd5cfbd2f73.png)
+
+2016.10.31
 ![screen shot 2016-10-30 at 15 40 35](https://cloud.githubusercontent.com/assets/1894992/19837753/4f1b66c2-9eb8-11e6-833c-238e1ca4e953.png)
 
 Backend: [Spring Boot Web](https://projects.spring.io/spring-boot/)
@@ -17,9 +21,11 @@ When you modify the attributes of the clustering algorithm, in the background th
 ## TODO
    * Backend
 - [X] API to regenerate the data collection
-- [ ] API to set the attributes of the data collection generation, like gap, inner radius, outer radius
+- [X] API to set the attributes of the data collection generation, like gap, inner radius, outer radius
 - [ ] Add more example data collection
    * Frontend
 - [X] Add 'Regenerate' button which regenerates the data collection
-- [ ] Add inputs to set the data generation's attributes
+- [X] Add inputs to set the data generation's attributes
+- [X] Add example data type selector
 - [ ] Add a selector for more example data collection
+- [ ] URL should contain the set parameters and use them
