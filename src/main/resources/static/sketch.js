@@ -6,18 +6,27 @@ var port = ':8080';
 var url = host + port;
 var clusteringUrl = url + '/clustering';
 var generateUrl = url + '/generate';
+
 var data = [];
 var clusters = [];
 var colors = [];
 var changed = false;
+
 var eps = 0.03;
 var pts = 3;
 var type = 'CIRCLE';
+
+var gap = 0.1;
+var innerSize = 1000;
+var outerSize = 1000;
 
 function setup() {
   canvas = createCanvas(windowWidth - canvasPosX, windowHeight);
   canvas.parent('canvasContainer');
   canvas.position(canvasPosX, 0);
+
+  processURLParameters();
+  regenerateData();
   getClusteredData();
 }
 
@@ -38,7 +47,14 @@ function getClusteredData() {
   loadJSON(u, translateToPoints);
 }
 
-function regenerateData(gap, innerSize, outerSize) {
+function setDataParametersAndRegenerate(g, iSize, oSize) {
+    gap = g;
+    innerSize = iSize;
+    outerSize = oSize;
+    regenerateData();
+}
+
+function regenerateData() {
     var params = {
         type: type,
         gap: gap,
@@ -125,7 +141,66 @@ function generateColors(size) {
   }
 }
 
-function createForm() {
-    var form = createElement('form');
-    form.parent();
+function getUrlParameter(sParam) {
+    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+        sURLVariables = sPageURL.split('&'),
+        sParameterName,
+        i;
+
+    for (i = 0; i < sURLVariables.length; i++) {
+        sParameterName = sURLVariables[i].split('=');
+
+        if (sParameterName[0] === sParam) {
+            return sParameterName[1] === undefined ? true : sParameterName[1];
+        }
+    }
+}
+
+function processURLParameters() {
+    getPTSParameterIfExist();
+    getEPSParameterIfExist();
+    getGapParameterIfExist();
+    getInnerSizeParameterIfExist();
+    getOuterSizeParameterIfExist();
+    console.log('Retrieving URL parameters');
+    document.getElementById('eps').value = eps;
+    document.getElementById('pts').value = pts;
+    document.getElementById('gap').value = gap;
+    document.getElementById('innerSize').value = innerSize;
+    document.getElementById('outerSize').value = outerSize;
+}
+
+function getPTSParameterIfExist() {
+    var e = getUrlParameter('pts');
+    if (e !== undefined) {
+        pts = e;
+    }
+}
+
+function getEPSParameterIfExist() {
+    var e = getUrlParameter('eps');
+    if (e !== undefined) {
+        eps = e;
+    }
+}
+
+function getGapParameterIfExist() {
+    var e = getUrlParameter('gap');
+    if (e !== undefined) {
+        gap = e;
+    }
+}
+
+function getInnerSizeParameterIfExist() {
+    var e = getUrlParameter('innerSize');
+    if (e !== undefined) {
+        innerSize = e;
+    }
+}
+
+function getOuterSizeParameterIfExist() {
+    var e = getUrlParameter('outerSize');
+    if (e !== undefined) {
+        outerSize = e;
+    }
 }

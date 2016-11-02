@@ -1,5 +1,6 @@
 package hu.szigyi.ml.clustering.data;
 
+import com.flowpowered.noise.Noise;
 import hu.szigyi.ml.clustering.model.DataPoint;
 import hu.szigyi.ml.clustering.util.CartesianPolar;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -60,5 +61,9 @@ public class ExampleData {
             data.add(point);
         }
         return data;
+    }
+
+    private List<Double> getRandomNoise() {
+        return null; // TODO
     }
 }

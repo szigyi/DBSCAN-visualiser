@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.AbstractJsonpResponseBodyAdvice;
 
@@ -69,7 +70,6 @@ public class MainController {
         } else {
             data = testData;
         }
-
         DBSCANClusterer clusterer = new DBSCANClusterer(eps, pts);
         List<Cluster<DataPoint>> cluster = clusterer.cluster(data);
         return cluster;
