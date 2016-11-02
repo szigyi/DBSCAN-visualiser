@@ -2,12 +2,6 @@
 ## Description
 Shows the DBSCAN clustering algorithm in action
 
-2016.11.01
-<img src="https://cloud.githubusercontent.com/assets/1894992/19910973/5f6c920e-a088-11e6-80a6-1cd5cfbd2f73.png" width="200" />
-
-2016.10.31
-![screen shot 2016-10-30 at 15 40 35](https://cloud.githubusercontent.com/assets/1894992/19837753/4f1b66c2-9eb8-11e6-833c-238e1ca4e953.png)
-
 Backend: [Spring Boot Web](https://projects.spring.io/spring-boot/)
 
 Frontend: [p5js](https://p5js.org/)
@@ -17,6 +11,13 @@ The clustering algorithm is [DBSCAN](https://en.wikipedia.org/wiki/DBSCAN). I us
 You can set the eps and pts attributes of the DBSCAN algorithm. Please keep in mind that the data collection is generated at the beggining of the application and it does not change in time.
 
 When you modify the attributes of the clustering algorithm, in the background the backend uses the same data collection and run the clustering with the new attrbitues.
+
+## Screenshots
+2016.11.01
+![screen shot 2016-10-30 at 15 40 35](https://cloud.githubusercontent.com/assets/1894992/19910973/5f6c920e-a088-11e6-80a6-1cd5cfbd2f73.png)
+
+2016.10.31
+![screen shot 2016-10-30 at 15 40 35](https://cloud.githubusercontent.com/assets/1894992/19837753/4f1b66c2-9eb8-11e6-833c-238e1ca4e953.png)
 
 ## TODO
    * Backend
