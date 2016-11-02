@@ -3,10 +3,10 @@
 Shows the DBSCAN clustering algorithm in action
 
 2016.11.01
-![screen shot 2016-11-01 at 23 10 01](https://cloud.githubusercontent.com/assets/1894992/19910973/5f6c920e-a088-11e6-80a6-1cd5cfbd2f73.png | width=200)
+<img src="https://cloud.githubusercontent.com/assets/1894992/19910973/5f6c920e-a088-11e6-80a6-1cd5cfbd2f73.png" width="200" />
 
 2016.10.31
-![screen shot 2016-10-30 at 15 40 35](https://cloud.githubusercontent.com/assets/1894992/19837753/4f1b66c2-9eb8-11e6-833c-238e1ca4e953.png | width=200)
+![screen shot 2016-10-30 at 15 40 35](https://cloud.githubusercontent.com/assets/1894992/19837753/4f1b66c2-9eb8-11e6-833c-238e1ca4e953.png)
 
 Backend: [Spring Boot Web](https://projects.spring.io/spring-boot/)
 
