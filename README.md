@@ -30,6 +30,6 @@ When you modify the attributes of the clustering algorithm, in the background th
 - [X] Add 'Regenerate' button which regenerates the data collection
 - [X] Add inputs to set the data generation's attributes
 - [X] Add a selector for more example data collection
-- [ ] URL should contain the set parameters and use them
+- [ ] URL should contain the settings and use them
 - [ ] Add file uploader
 - [ ] Visualise the data if that has more than 2 dimensions
