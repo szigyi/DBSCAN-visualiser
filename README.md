@@ -33,5 +33,6 @@ When you modify the attributes of the clustering algorithm, in the background th
 - [X] Add inputs to set the data generation's attributes
 - [X] Add a selector for more example data collection
 - [X] URL should contains the settings (parameters of clustering, example data) and use them
+- [ ] Create subpage - Cluster Drawer - Create data points with mouse
 - [ ] Add file uploader
 - [ ] Visualise the data if that has more than 2 dimensions
