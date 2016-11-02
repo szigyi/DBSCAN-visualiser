@@ -6,9 +6,9 @@ Backend: [Spring Boot Web](https://projects.spring.io/spring-boot/)
 
 Frontend: [p5js](https://p5js.org/)
 
-The clustering algorithm is [DBSCAN](https://en.wikipedia.org/wiki/DBSCAN). I use the [apache commons-math3](http://commons.apache.org/proper/commons-math/userguide/ml.html#clustering) library to do the clustering.
+The clustering algorithm is [DBSCAN](https://en.wikipedia.org/wiki/DBSCAN). I use the [apache commons-math3](http://commons.apache.org/proper/commons-math/userguide/ml.html#clustering) library to cluster the data.
 
-You can set the eps and pts attributes of the DBSCAN algorithm. Please keep in mind that the data collection is generated at the beggining of the application and it does not change in time.
+You can set the eps and pts attributes of the DBSCAN algorithm. Please keep in mind that the data collection is generated at the beggining of the application ~~and it does not change in time.~~ !UPDATE! You can regenerate the data whenever you want with the 'ReGenerate' button on the UI.
 
 When you modify the attributes of the clustering algorithm, in the background the backend uses the same data collection and run the clustering with the new attrbitues.
 
