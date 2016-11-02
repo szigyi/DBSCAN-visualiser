@@ -25,7 +25,7 @@ When you modify the attributes of the clustering algorithm, in the background th
    * Backend
 - [X] API to regenerate the data collection
 - [X] API to set the attributes of the data collection generation, like gap, inner radius, outer radius
-- [ ] API to consume files which contain the data points
+- [ ] API to consume custom data points
 - [ ] Add option to use Perlin noise or other random generator
 - [ ] Add more example data collection
    * Frontend
@@ -34,5 +34,5 @@ When you modify the attributes of the clustering algorithm, in the background th
 - [X] Add a selector for more example data collection
 - [X] URL should contains the settings (parameters of clustering, example data) and use them
 - [ ] Create subpage - Cluster Drawer - Create data points with mouse
-- [ ] Add file uploader
+- [ ] Add textare for the custom data points
 - [ ] Visualise the data if that has more than 2 dimensions
