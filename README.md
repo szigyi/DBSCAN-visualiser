@@ -6,6 +6,8 @@ Backend: [Spring Boot Web](https://projects.spring.io/spring-boot/)
 
 Frontend: [p5js](https://p5js.org/)
 
+Example url: [http://localhost:8080/?eps=0.05&pts=5&gap=0.3&innerSize=50&outerSize=1300](http://localhost:8080/?eps=0.05&pts=5&gap=0.3&innerSize=50&outerSize=1300)
+
 The clustering algorithm is [DBSCAN](https://en.wikipedia.org/wiki/DBSCAN). I use the [apache commons-math3](http://commons.apache.org/proper/commons-math/userguide/ml.html#clustering) library to cluster the data.
 
 You can set the eps and pts attributes of the DBSCAN algorithm. Please keep in mind that the data collection is generated at the beggining of the application ~~and it does not change in time.~~ !UPDATE! You can regenerate the data whenever you want with the 'ReGenerate' button on the UI.
@@ -30,6 +32,6 @@ When you modify the attributes of the clustering algorithm, in the background th
 - [X] Add 'Regenerate' button which regenerates the data collection
 - [X] Add inputs to set the data generation's attributes
 - [X] Add a selector for more example data collection
-- [ ] URL should contain the settings and use them
+- [X] URL should contains the settings (parameters of clustering, example data) and use them
 - [ ] Add file uploader
 - [ ] Visualise the data if that has more than 2 dimensions
