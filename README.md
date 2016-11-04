@@ -25,7 +25,7 @@ When you modify the attributes of the clustering algorithm, in the background th
    * Backend
 - [X] API to regenerate the data collection
 - [X] API to set the attributes of the data collection generation, like gap, inner radius, outer radius
-- [ ] API to consume custom data points
+- [X] API to consume custom data points
 - [ ] Add option to use Perlin noise or other random generator
 - [ ] Add more example data collection
    * Frontend
