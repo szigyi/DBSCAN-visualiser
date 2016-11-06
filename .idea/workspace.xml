@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f5087ec3-beb3-4f46-a1ee-f3e47b30bec9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/drawer.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/static/drawer_sketch.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Procfile" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/hu/szigyi/ml/clustering/conf/Configuration.java" afterPath="$PROJECT_DIR$/src/main/java/hu/szigyi/ml/clustering/conf/Configuration.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/hu/szigyi/ml/clustering/controller/MainController.java" afterPath="$PROJECT_DIR$/src/main/java/hu/szigyi/ml/clustering/controller/MainController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/hu/szigyi/ml/clustering/data/ExampleData.java" afterPath="$PROJECT_DIR$/src/main/java/hu/szigyi/ml/clustering/data/ExampleData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/hu/szigyi/ml/clustering/model/DataPoint.java" afterPath="$PROJECT_DIR$/src/main/java/hu/szigyi/ml/clustering/model/DataPoint.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/index.html" afterPath="$PROJECT_DIR$/src/main/resources/static/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/static/sketch.js" afterPath="$PROJECT_DIR$/src/main/resources/static/sketch.js" />
     </list>
     <ignored path="DBSCAN-test.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -49,11 +42,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DBSCANApp.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DBSCANApp.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/hu/szigyi/ml/clustering/DBSCANApp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="165">
-              <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
+            <state relative-caret-position="135">
+              <caret line="12" column="22" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="22" />
               <folding>
                 <element signature="e#466#467#0" expanded="true" />
                 <element signature="e#526#527#0" expanded="true" />
@@ -65,8 +58,8 @@
       <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
-              <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
+            <state relative-caret-position="900">
+              <caret line="60" column="58" selection-start-line="60" selection-start-column="58" selection-end-line="60" selection-end-column="58" />
               <folding />
             </state>
           </provider>
@@ -118,7 +111,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="drawer_sketch.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="drawer_sketch.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/drawer_sketch.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="340">
@@ -173,7 +166,6 @@
         <option value="$PROJECT_DIR$/src/main/java/hu/szigyi/ml/clustering/util/CartesianPolar.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/main.css" />
         <option value="$PROJECT_DIR$/src/main/java/hu/szigyi/ml/clustering/model/DataPoint.java" />
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/hu/szigyi/ml/clustering/conf/Configuration.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/sketch.js" />
         <option value="$PROJECT_DIR$/src/main/java/hu/szigyi/ml/clustering/data/ExampleData.java" />
@@ -181,6 +173,7 @@
         <option value="$PROJECT_DIR$/src/main/resources/static/drawer.html" />
         <option value="$PROJECT_DIR$/src/main/java/hu/szigyi/ml/clustering/controller/MainController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/drawer_sketch.js" />
+        <option value="$PROJECT_DIR$/pom.xml" />
       </list>
     </option>
   </component>
@@ -1086,25 +1079,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/hu/szigyi/ml/clustering/DBSCANApp.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
-          <folding>
-            <element signature="e#466#467#0" expanded="true" />
-            <element signature="e#526#527#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
-          <caret line="37" column="26" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/hu/szigyi/ml/clustering/model/DataPoint.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="226">
@@ -1141,16 +1115,6 @@
         <state relative-caret-position="405">
           <caret line="51" column="25" selection-start-line="51" selection-start-column="25" selection-end-line="51" selection-end-column="25" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="450">
-          <caret line="58" column="12" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="133" />
-          <folding>
-            <element signature="e#3690#3697#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1195,6 +1159,35 @@
         <state relative-caret-position="340">
           <caret line="96" column="35" selection-start-line="96" selection-start-column="35" selection-end-line="96" selection-end-column="35" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="58" column="12" selection-start-line="58" selection-start-column="12" selection-end-line="58" selection-end-column="133" />
+          <folding>
+            <element signature="e#3690#3697#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="900">
+          <caret line="60" column="58" selection-start-line="60" selection-start-column="58" selection-end-line="60" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/hu/szigyi/ml/clustering/DBSCANApp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="12" column="22" selection-start-line="12" selection-start-column="13" selection-end-line="12" selection-end-column="22" />
+          <folding>
+            <element signature="e#466#467#0" expanded="true" />
+            <element signature="e#526#527#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
