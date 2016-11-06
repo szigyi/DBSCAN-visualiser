@@ -1,1 +1,1 @@
-web: java $JAVA_OPTS -cp target/classes:target/lib/* hu.szigyi.ml.clustering.DBSCANApp
+web: java $JAVA_OPTS -jar target/dbscan-test-1.0-SNAPSHOT.jar
