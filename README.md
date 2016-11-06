@@ -45,4 +45,5 @@ Preview before Uploading - You can edit the data!
 - [X] Add textarea for the custom data points
 - [X] Add option to use Perlin noise or other random generator
 - [X] Create subpage - Cluster Drawer - Create data points with mouse
+- [ ] Add graph statistics - density, min and max distance, etc.
 - [ ] Visualise the data if that has more than 2 dimensions
