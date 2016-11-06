@@ -23,14 +23,18 @@
 <body>
 <div class="container-fluid">
     <div id="settings" class="form-group">
+        <br/>
+        <fieldset>
+            <a href="/draw.html" class="btn btn-success btn-lg">Draw the data</a>
+        </fieldset>
         <fieldset>
             <legend>Data Type</legend>
             <select id="dataTypeSelector" class="form-control"
                     onchange="setDataType(document.getElementById('dataTypeSelector').value)">
-                <option value="CIRCLE">Circle</option>
-                <option value="NOISE">Noise</option>
-                <option value="RANDOM">Random</option>
-                <option id="customOption" value="CUSTOM">Custom</option>
+                <option id="circle" value="CIRCLE">Circle</option>
+                <option id="noise" value="NOISE">Noise</option>
+                <option id="random" value="RANDOM">Random</option>
+                <option id="custom" value="CUSTOM">Custom</option>
             </select>
         </fieldset>
         <fieldset>

@@ -15,7 +15,7 @@ var changed = false;
 
 var eps = 0.03;
 var pts = 3;
-var type = 'CIRCLE';
+var type = 'circle';
 
 var gap = 0.1;
 var innerSize = 1000;
@@ -80,8 +80,8 @@ function sendCustomDataPoints(customData) {
     xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             console.log(this.responseText);
-            type = 'CUSTOM';
-            document.getElementById('customOption').selected = 'selected';
+            type = 'custom';
+            document.getElementById('custom').selected = 'selected';
             getClusteredData();
         }
     };
@@ -103,10 +103,10 @@ function translateToPoints(d) {
       var p = c[j];
       var X;
       var Y;
-      if (type === 'CIRCLE') {
+      if (type === 'circle') {
         X = map(p.x, 0, 1, width / 2, width - 10);
         Y = map(p.y, 0, 1, height / 2, height - 10);
-      } else if (type === 'NOISE') {
+      } else if (type === 'noise') {
         X = map(p.x, -1, 1, 10, width - 10);
         Y = map(p.y, -1, 1, 10, height - 10);
       } else {
@@ -183,12 +183,21 @@ function processURLParameters() {
     getGapParameterIfExist();
     getInnerSizeParameterIfExist();
     getOuterSizeParameterIfExist();
+    getTypeParameterIfExist();
     console.log('Retrieving URL parameters');
     document.getElementById('eps').value = eps;
     document.getElementById('pts').value = pts;
     document.getElementById('gap').value = gap;
     document.getElementById('innerSize').value = innerSize;
     document.getElementById('outerSize').value = outerSize;
+    document.getElementById(type).selected = 'selected';
+}
+
+function getTypeParameterIfExist() {
+    var e = getUrlParameter('type');
+    if (e !== undefined) {
+        type = e;
+    }
 }
 
 function getPTSParameterIfExist() {
