@@ -15,7 +15,7 @@ You can set the eps and pts attributes of the DBSCAN algorithm. Please keep in m
 When you modify the attributes of the clustering algorithm, in the background the backend uses the same data collection and run the clustering with the new attrbitues.
 
 ## Screenshots
-2016.11.06
+### 2016.11.06
 Clustering
 ![screen shot 2016-11-06 at 16 26 17](https://cloud.githubusercontent.com/assets/1894992/20039580/58dc9286-a43e-11e6-9daa-1359df8f93a6.png)
 
@@ -24,10 +24,10 @@ Drawer
 Preview before Uploading - You can edit the data!
 ![screen shot 2016-11-06 at 16 26 37](https://cloud.githubusercontent.com/assets/1894992/20039592/8929ddfe-a43e-11e6-939e-ac858e70df76.png)
 
-2016.11.01
+### 2016.11.01
 ![screen shot 2016-10-30 at 15 40 35](https://cloud.githubusercontent.com/assets/1894992/19910973/5f6c920e-a088-11e6-80a6-1cd5cfbd2f73.png)
 
-2016.10.31
+### 2016.10.31
 ![screen shot 2016-10-30 at 15 40 35](https://cloud.githubusercontent.com/assets/1894992/19837753/4f1b66c2-9eb8-11e6-833c-238e1ca4e953.png)
 
 ## TODO
