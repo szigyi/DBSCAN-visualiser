@@ -6,6 +6,7 @@ var port = ':8080';
 var url = host + port;
 var clusteringUrl = url + '/clustering';
 var generateUrl = url + '/generate';
+var customDataUrl = url + '/datapoints';
 
 var data = [];
 var clusters = [];
@@ -72,6 +73,23 @@ function regenerateData() {
     }
 }
 
+function sendCustomDataPoints(customData) {
+    console.log('Sending custom data points to the server');
+
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            console.log(this.responseText);
+            type = 'CUSTOM';
+            document.getElementById('customOption').selected = 'selected';
+            getClusteredData();
+        }
+    };
+    xhr.open("POST", customDataUrl, true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(customData);
+}
+
 function translateToPoints(d) {
   clusters = [];
   data = d;
@@ -88,6 +106,9 @@ function translateToPoints(d) {
       if (type === 'CIRCLE') {
         X = map(p.x, 0, 1, width / 2, width - 10);
         Y = map(p.y, 0, 1, height / 2, height - 10);
+      } else if (type === 'NOISE') {
+        X = map(p.x, -1, 1, 10, width - 10);
+        Y = map(p.y, -1, 1, 10, height - 10);
       } else {
         X = map(p.x, 0, 1, 10, width - 10);
         Y = map(p.y, 0, 1, 10, height - 10);

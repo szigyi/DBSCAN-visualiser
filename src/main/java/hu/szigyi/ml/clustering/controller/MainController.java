@@ -6,23 +6,18 @@ import org.apache.commons.math3.ml.clustering.Cluster;
 import org.apache.commons.math3.ml.clustering.DBSCANClusterer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.servlet.mvc.method.annotation.AbstractJsonpResponseBodyAdvice;
 
-import javax.xml.crypto.Data;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 /**
  * Created by szabolcs on 29/10/2016.
  */
-@Controller
+@RestController
 @RequestMapping("/")
 public class MainController {
 
@@ -30,12 +25,18 @@ public class MainController {
     private ExampleData exampleData;
 
     @Autowired
-    @Qualifier("testData")
-    private Collection<DataPoint> testData;
+    @Qualifier("randomData")
+    private Collection<DataPoint> randomData;
+
+    @Autowired
+    @Qualifier("noiseData")
+    private Collection<DataPoint> noiseData;
 
     @Autowired
     @Qualifier("circleData")
     private Collection<DataPoint> circleData;
+
+    private Collection<DataPoint> customData = new ArrayList<>();
 
     @GetMapping("/clustering/{type}")
     @ResponseBody
@@ -48,6 +49,13 @@ public class MainController {
         return clusters;
     }
 
+    @PostMapping(value = "/datapoints")
+    public ResponseEntity consumeCustomDatapoints(@RequestBody ArrayList<DataPoint> dataPoints) {
+        customData = dataPoints;
+        System.out.println(LocalDateTime.now().toString() + " Custom data points have been set:" + customData.size());
+        return ResponseEntity.ok().build();
+    }
+
     @GetMapping("/generate/{type}")
     public ResponseEntity generateData(@PathVariable("type") String type,
                                        @RequestParam("gap") double gap,
@@ -56,9 +64,11 @@ public class MainController {
         System.out.println(LocalDateTime.now().toString() + " Generate example data: " + type);
 
         if ("CIRCLE".equalsIgnoreCase(type)) {
-            circleData = exampleData.createExampleCircle(gap, innerSize, outerSize);
+            circleData = exampleData.createCircle(gap, innerSize, outerSize);
+        } else if ("NOISE".equalsIgnoreCase(type)) {
+            noiseData = exampleData.createNoise();
         } else {
-            testData = exampleData.createExample();
+            randomData = exampleData.createRandom();
         }
         return ResponseEntity.ok().build();
     }
@@ -67,9 +77,14 @@ public class MainController {
         Collection<DataPoint> data;
         if ("CIRCLE".equalsIgnoreCase(type)) {
             data = circleData;
+        } else if ("CUSTOM".equalsIgnoreCase(type)) {
+            data = customData;
+        } else if ("NOISE".equalsIgnoreCase(type)) {
+            data = noiseData;
         } else {
-            data = testData;
+            data = randomData;
         }
+        System.out.println(LocalDateTime.now().toString() + " Selected data's size:" + data.size());
         DBSCANClusterer clusterer = new DBSCANClusterer(eps, pts);
         List<Cluster<DataPoint>> cluster = clusterer.cluster(data);
         return cluster;

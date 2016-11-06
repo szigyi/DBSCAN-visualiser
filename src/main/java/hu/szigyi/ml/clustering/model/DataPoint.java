@@ -1,5 +1,6 @@
 package hu.szigyi.ml.clustering.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.apache.commons.math3.ml.clustering.Clusterable;
 
 /**
@@ -11,7 +12,11 @@ public class DataPoint implements Clusterable {
 
     private double y;
 
+    @JsonIgnore
     private double[] points;
+
+    public DataPoint() {
+    }
 
     public DataPoint(double x, double y) {
         this.x = x;
@@ -56,7 +61,11 @@ public class DataPoint implements Clusterable {
     }
 
     @Override
+    @JsonIgnore
     public double[] getPoint() {
+        if (null == points) {
+            points = new double[]{ x, y };
+        }
         return points;
     }
 }

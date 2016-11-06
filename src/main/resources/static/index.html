@@ -2,18 +2,20 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>DBSCAN_Clustering</title>
+    <title>DBSCAN Clustering</title>
     <script src="libraries/p5.js" type="text/javascript"></script>
 
     <script src="libraries/p5.dom.js" type="text/javascript"></script>
     <script src="libraries/p5.sound.js" type="text/javascript"></script>
 
-    <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.js"
+            integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" type="text/javascript"></script>
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
+          type="text/css"/>
 
     <script src="sketch.js" type="text/javascript"></script>
-    <link href="main.css" rel="stylesheet" type="text/css" />
+    <link href="main.css" rel="stylesheet" type="text/css"/>
 
     <style> body {padding: 0; margin: 0;} canvas {vertical-align: top;} </style>
 </head>
@@ -22,35 +24,64 @@
     <div id="settings" class="form-group">
         <fieldset>
             <legend>Data Type</legend>
-            <select id="dataTypeSelector" class="form-control">
+            <select id="dataTypeSelector" class="form-control"
+                    onchange="setDataType(document.getElementById('dataTypeSelector').value)">
                 <option value="CIRCLE">Circle</option>
+                <option value="NOISE">Noise</option>
                 <option value="RANDOM">Random</option>
+                <option id="customOption" value="CUSTOM">Custom</option>
             </select>
-            <button class="btn btn-info" onclick="setDataType(document.getElementById('dataTypeSelector').value)">Select</button>
         </fieldset>
         <fieldset>
             <legend>Clustering</legend>
-            <label for="eps" class="form-text" ><a href="#" title="the maximum distance of points required to belong to cluster">EPS</a></label>
-            <input type="number" name="eps" id="eps" class="form-control" min="0" max="1" step="0.01" />
-            <label for="pts" class="form-text" ><a href="#" title="the minimum number of points required to form a dense region">PTS</a></label>
-            <input type="number" name="pts" id="pts" class="form-control" min="1" max="100" step="1" />
-            <button class="btn btn-success" onclick="setAttributeAndCluster(document.getElementById('eps').value, document.getElementById('pts').value)">
+            <label for="eps" class="form-text"><a href="#" title="the maximum distance of points required to belong to cluster">EPS</a></label>
+            <input type="number" name="eps" id="eps" class="form-control" min="0" max="1" step="0.01"/>
+            <label for="pts" class="form-text"><a href="#" title="the minimum number of points required to form a dense region">PTS</a></label>
+            <input type="number" name="pts" id="pts" class="form-control" min="1" max="100" step="1"/>
+            <button type="button" class="btn btn-success" onclick="setAttributeAndCluster(document.getElementById('eps').value, document.getElementById('pts').value)">
                 Submit
             </button>
         </fieldset>
         <fieldset>
             <legend>Data Collection</legend>
-            <label for="gap" class="form-text" >Gap</label>
-            <input type="number" name="gap" id="gap" class="form-control" min="0" max="1" step="0.01" />
+            <label for="gap" class="form-text">Gap</label>
+            <input type="number" name="gap" id="gap" class="form-control" min="0" max="1" step="0.01"/>
 
-            <label for="innerSize" class="form-text" ># of inner</label>
-            <input type="number" name="innerSize" id="innerSize" class="form-control" min="1" max="100000" step="10" />
-            <label for="outerSize" class="form-text" ># of outer</label>
-            <input type="number" name="outerSize" id="outerSize" class="form-control" min="1" max="100000" step="10" />
+            <label for="innerSize" class="form-text"># of inner</label>
+            <input type="number" name="innerSize" id="innerSize" class="form-control" min="1" max="100000" step="10"/>
+            <label for="outerSize" class="form-text"># of outer</label>
+            <input type="number" name="outerSize" id="outerSize" class="form-control" min="1" max="100000" step="10"/>
 
-            <button class="btn btn-primary" onclick="setDataParametersAndRegenerate(document.getElementById('gap').value, document.getElementById('innerSize').value, document.getElementById('outerSize').value)">ReGenerate data</button>
+            <button type="button" class="btn btn-primary"
+                    onclick="setDataParametersAndRegenerate(document.getElementById('gap').value, document.getElementById('innerSize').value, document.getElementById('outerSize').value)">
+                ReGenerate data
+            </button>
+            <button type="button" data-toggle="modal" data-target="#customDataModel" class="btn btn-success">Use Custom Data</button>
         </fieldset>
     </div>
+
+    <!-- Modal -->
+    <div id="customDataModel" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title">Custom Data Points</h4>
+                </div>
+                <div class="modal-body">
+                    <textarea class="form-control" rows="10" id="customData"
+                              placeholder='[{"x":-0.002002260621050481,"y":0.0838316331045228},{"x":0.17925203521527652,"y":-0.002681628110137845},{"x":-0.0912766721075925,"y":0.019576384944720665}]'></textarea>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal" onclick="sendCustomDataPoints(document.getElementById('customData').value)">Send</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
     <div id="canvasContainer"></div>
 </div>
 </body>

@@ -1,10 +1,10 @@
 package hu.szigyi.ml.clustering.data;
 
 import com.flowpowered.noise.Noise;
+import com.flowpowered.noise.NoiseQuality;
 import hu.szigyi.ml.clustering.model.DataPoint;
 import hu.szigyi.ml.clustering.util.CartesianPolar;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -28,16 +28,16 @@ public class ExampleData {
         random = new Random();
     }
 
-    public Collection<DataPoint> createExample() {
+    public Collection<DataPoint> createRandom() {
         Collection<DataPoint> data = new ArrayList<>();
-        for (int i = 0; i < 1000; i++) {
+        for (int i = 0; i < 10000; i++) {
             DataPoint point = new DataPoint(random.nextDouble(), random.nextDouble());
             data.add(point);
         }
         return data;
     }
 
-    public Collection<DataPoint> createExampleCircle(double gap, int innerSize, int outerSize) {
+    public Collection<DataPoint> createCircle(double gap, int innerSize, int outerSize) {
         double maxAngle = 360;
         double innerRadius = 0.3;
         double outerRadius = 0.3;
@@ -63,7 +63,25 @@ public class ExampleData {
         return data;
     }
 
-    private List<Double> getRandomNoise() {
-        return null; // TODO
+    public Collection<DataPoint> createNoise() {
+        NoiseQuality quality = NoiseQuality.BEST;
+        Collection<DataPoint> dataPoints = new ArrayList<>();
+        int size = 200;
+        double x = 0.01;
+        double y = 0.07;
+        double z = 0;
+        double xOff = 0.001;
+        double yOff = 0.015;
+        double zOff = 0.01;
+        int seed = 0;
+        for (int i = 0; i < size; i++) {
+            double X = Noise.gradientCoherentNoise3D(x, y, z, seed, quality);
+            y += yOff;
+            double Y = Noise.gradientCoherentNoise3D(x, y, z, seed, quality);
+            dataPoints.add(new DataPoint(X, Y));
+            x += xOff;
+            //z += zOff;
+        }
+        return dataPoints;
     }
 }
