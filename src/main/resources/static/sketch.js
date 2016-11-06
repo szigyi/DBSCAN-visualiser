@@ -1,9 +1,9 @@
 
+
+
 var canvas;
 var canvasPosX = 200;
-var host = 'http://localhost';
-var port = ':8080';
-var url = host + port;
+var url = getHostPort();
 var clusteringUrl = url + '/clustering';
 var generateUrl = url + '/generate';
 var customDataUrl = url + '/datapoints';

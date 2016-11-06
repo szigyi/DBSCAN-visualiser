@@ -1,9 +1,7 @@
 
 var canvas;
 var canvasPosX = 200;
-var host = 'http://localhost';
-var port = ':8080';
-var url = host + port;
+var url = getHostPort();
 var customDataUrl = url + '/datapoints';
 
 var brushDensity = 10;
