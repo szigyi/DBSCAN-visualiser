@@ -15,6 +15,15 @@ You can set the eps and pts attributes of the DBSCAN algorithm. Please keep in m
 When you modify the attributes of the clustering algorithm, in the background the backend uses the same data collection and run the clustering with the new attrbitues.
 
 ## Screenshots
+2016.11.06
+Clustering
+![screen shot 2016-11-06 at 16 26 17](https://cloud.githubusercontent.com/assets/1894992/20039580/58dc9286-a43e-11e6-9daa-1359df8f93a6.png)
+
+Drawer
+![screen shot 2016-11-06 at 16 26 26](https://cloud.githubusercontent.com/assets/1894992/20039585/68bfc9a2-a43e-11e6-8965-9eed4cdd2577.png)
+Preview before Uploading - You can edit the data!
+![screen shot 2016-11-06 at 16 26 37](https://cloud.githubusercontent.com/assets/1894992/20039592/8929ddfe-a43e-11e6-939e-ac858e70df76.png)
+
 2016.11.01
 ![screen shot 2016-10-30 at 15 40 35](https://cloud.githubusercontent.com/assets/1894992/19910973/5f6c920e-a088-11e6-80a6-1cd5cfbd2f73.png)
 
@@ -26,13 +35,14 @@ When you modify the attributes of the clustering algorithm, in the background th
 - [X] API to regenerate the data collection
 - [X] API to set the attributes of the data collection generation, like gap, inner radius, outer radius
 - [X] API to consume custom data points
-- [ ] Add option to use Perlin noise or other random generator
+- [X] Add option to use Perlin noise or other random generator
 - [ ] Add more example data collection
    * Frontend
 - [X] Add 'Regenerate' button which regenerates the data collection
 - [X] Add inputs to set the data generation's attributes
 - [X] Add a selector for more example data collection
 - [X] URL should contains the settings (parameters of clustering, example data) and use them
-- [ ] Create subpage - Cluster Drawer - Create data points with mouse
-- [ ] Add textare for the custom data points
+- [X] Add textarea for the custom data points
+- [X] Add option to use Perlin noise or other random generator
+- [X] Create subpage - Cluster Drawer - Create data points with mouse
 - [ ] Visualise the data if that has more than 2 dimensions
